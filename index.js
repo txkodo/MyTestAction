@@ -1,11 +1,12 @@
 const core = require('@actions/core');
 const fs = require('fs');
+const path = require('path');
 
-function recursivePath(path){
-    if (fs.statSync(path).isDirectory()){
-        return Object.fromEntries(fs.readdirSync(path).map(x => [x,recursivePath(x)]))
+function recursivePath(p){
+    if (fs.statSync(p).isDirectory()){
+        return Object.fromEntries(fs.readdirSync(p).map(x => [x,recursivePath(path.join(p,x))]))
     }
-    return path
+    return null
 }
 
 try {
