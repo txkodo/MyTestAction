@@ -3,8 +3,10 @@ const fs = require('fs');
 
 try {
     const path = core.getInput('json-path');
-    JSON.parse(fs.readFileSync(path)).version
-    core.setOutput("version", version);
+    const content = fs.readFileSync(path)
+    const jcontent = JSON.parse(content)
+    console.log(content)
+    core.setOutput("version", jcontent.version);
     if (version === undefined){
         core.setFailed("version number not found");
     }
