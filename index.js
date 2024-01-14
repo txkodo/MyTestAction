@@ -5,9 +5,6 @@ const path = require('path');
 try {
     const path = core.getInput('json-path',{trimWhitespace:true}) ?? "package.json";
     const content = JSON.parse(fs.readFileSync(path,{encoding:"utf8"}))
-
-    console.log(content)
-    console.log("vvaaavv",content.version)
     
     let [major, minor, patch] = content.version.split('.').map(x => parseInt(x));
 
