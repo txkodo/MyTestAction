@@ -35,7 +35,7 @@ try {
 
     if (updateJsonFile){
         content.version = next_version
-        await fs.writeFile('package.json', JSON.stringify(content, undefined, 2), {
+        fs.writeFileSync('package.json', JSON.stringify(content, undefined, 2), {
             encoding: 'utf8',
             });
     }
