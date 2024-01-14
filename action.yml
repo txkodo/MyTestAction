@@ -1,13 +1,23 @@
 name: 'Get Node Project Version'
 description: 'get version from package.json'
 inputs:
-  json-path:  # id of input
+  json-path:
     description: 'package.json path'
     required: false
     default: 'package.json'
+  update-json:
+    description: 'if update package.json version filed with new version'
+    required: false
+    default: false
+  release-type:
+    description: 'major | minor | patch'
+    required: false
+    default: false
 outputs:
-  version: # id of output
-    description: 'Node Project Version'
+  current-version:
+    description: 'Current Project Version'
+  next-version:
+    description: 'Next Project Version'
 runs:
   using: 'node20'
   main: 'index.js'
