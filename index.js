@@ -13,7 +13,7 @@ try {
 
     let release_type = core.getInput('release-type',{trimWhitespace:true})
 
-    core.setOutput("current-version",`${major},${minor},${patch}`)
+    core.setOutput("current-version",`${major}.${minor}.${patch}`)
 
     switch (release_type){
         case "major":
@@ -31,7 +31,7 @@ try {
             break;
     }
 
-    const next_version = `${major},${minor},${patch}`
+    const next_version = `${major}.${minor}.${patch}`
     core.setOutput("next-version",next_version)
 
     const updateJsonFile = core.getInput('update-json',{trimWhitespace:true}).toLowerCase() === "true";
