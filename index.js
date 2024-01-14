@@ -9,7 +9,7 @@ try {
     console.log(content)
     console.log("vvaaavv",content.version)
     
-    let [major, minor, patch] = content.version.split('.').map(parseInt);
+    let [major, minor, patch] = content.version.split('.').map(x => parseInt(x));
 
     let release_type = core.getInput('release-type',{trimWhitespace:true})
 
